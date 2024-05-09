@@ -8,10 +8,12 @@ const memberSchema = new Schema({
   username: { type: String, required: true },
   passsword: { type: String, required: true },
   admin: { type: Boolean, default: false },
-  messages: {
-    type: Schema.Types.ObjectId,
-    ref: "Messages",
-  },
+  messages: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Messages",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Member", memberSchema);
