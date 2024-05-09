@@ -11,7 +11,7 @@ const memberSchema = new Schema({
   messages: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Messages",
+      ref: "Message",
     },
   ],
 });
