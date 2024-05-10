@@ -13,4 +13,5 @@ router.post("/sign-up", signUpController.createMember_post);
 
 // Login page routes
 router.get("/login", loginController.login_get);
+router.post("/login", loginController.login_post);
 module.exports = router;
