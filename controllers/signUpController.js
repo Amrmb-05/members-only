@@ -37,20 +37,13 @@ exports.createMember_post = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
-
     // Create member object with escaped and trimmed data
 
     const member = new Member({
       first_name: req.body.firstname,
       last_name: req.body.lastname,
       username: req.body.username,
-      password: bcrypt.hash(
-        req.body.password,
-        100,
-        asyncHandler(async (hashedPassword) => {
-          return hashedPassword;
-        }),
-      ),
+      password: req.body.password,
     });
 
     if (!errors.isEmpty()) {
