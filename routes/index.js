@@ -4,7 +4,7 @@ const signUpController = require("../controllers/signUpController");
 const loginController = require("../controllers/loginController");
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("index", { title: "Express", member: req.user });
 });
 
 // Sign-up page routes
