@@ -46,9 +46,9 @@ app.use(
     },
   }),
 );
-
 // require the passport config module so app.js knows about it
 require("./config/passport");
+app.use(passport.session());
 
 app.use(logger("dev"));
 app.use(express.json());
