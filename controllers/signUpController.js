@@ -53,7 +53,7 @@ exports.createMember_post = [
       });
     } else {
       await member.save();
-      res.redirect("/sign-in");
+      res.redirect("/login");
     }
   }),
 ];
