@@ -1,6 +1,7 @@
-const { types } = require("@babel/core");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
 
 const memberSchema = new Schema({
   first_name: { type: String, required: true },
@@ -22,6 +23,13 @@ memberSchema.virtual("name").get(function () {
     fullname = this.first_name + this.last_name;
   }
   return fullname;
+});
+
+memberSchema.pre("save", async function (next) {
+  const member = this;
+
+  member.password = await bcrypt.hash(member.password, 10);
+  next();
 });
 
 module.exports = mongoose.model("Member", memberSchema);

@@ -1,5 +1,6 @@
 const Member = require("../models/member");
 const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 
 exports.createMember_get = (req, res, next) => {
@@ -43,7 +44,13 @@ exports.createMember_post = [
       first_name: req.body.firstname,
       last_name: req.body.lastname,
       username: req.body.username,
-      password: req.body.password,
+      password: bcrypt.hash(
+        req.body.password,
+        100,
+        asyncHandler(async (hashedPassword) => {
+          return hashedPassword;
+        }),
+      ),
     });
 
     if (!errors.isEmpty()) {
