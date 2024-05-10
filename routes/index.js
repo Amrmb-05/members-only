@@ -8,4 +8,5 @@ router.get("/", function (req, res, next) {
 
 // Sign-up page routes
 router.get("/sign-up", signUpController.createMember_get);
+router.post("/sign-up", signUpController.createMember_post);
 module.exports = router;
