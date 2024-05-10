@@ -8,7 +8,7 @@ passport.use(
   new LocalStrategy(
     asyncHandler(async (username, password, done) => {
       const member = await Member.findOne({ username: username });
-      const passwordMatch = bcrypt.compare(password, member.password);
+      const passwordMatch = await bcrypt.compare(password, member.password);
       if (!member || !passwordMatch) {
         return done(null, false, {
           message: "Incorrect username or password.",
