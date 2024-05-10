@@ -1,9 +1,14 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
+const passport = require("passport");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+require("dotenv").config();
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
@@ -13,16 +18,37 @@ mongoose.set("strictQuery", false);
 dev_db_url =
   "mongodb+srv://amoreemb:test1@cluster0.pne1pya.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const mongoDB = process.env.MONGOBB_URI || dev_db_url;
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
-// connection string
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+const sessionStore = MongoStore.create({
+  mongoUrl: mongoDB,
+  collectionName: "sessions",
+});
+
+//     SESSION  //
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+    },
+  }),
+);
+
+// require the passport config module so app.js knows about it
+require("./config/passport");
 
 app.use(logger("dev"));
 app.use(express.json());
