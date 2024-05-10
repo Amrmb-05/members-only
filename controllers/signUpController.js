@@ -41,9 +41,9 @@ exports.createMember_post = [
 
     const member = new Member({
       first_name: req.body.firstname,
-      last_name: req.body.last_name,
+      last_name: req.body.lastname,
       username: req.body.username,
-      passsword: req.body.passsword,
+      password: req.body.password,
     });
 
     if (!errors.isEmpty()) {
