@@ -4,7 +4,7 @@
   <%- include("./partials/head"); %>
 </head>
 <body>
-    <%- include("./partials/header", {user: undefined}); %>
+    <%- include("./partials/header", {user: author}); %>
     <h1>New Message</h1>
     <p>Hi, <%=author.first_name%></p>
     <p>Whats on your mind?</p>

@@ -10,3 +10,34 @@ exports.createMessage_get = (req, res, next) => {
     res.redirect("/");
   }
 };
+
+exports.createMessage_post = [
+  body("title", "Title can not be empty.").trim().isLength({ min: 1 }).escape(),
+  body("text", "Message can not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    const message = new Message({
+      title: req.body.title,
+      text: req.body.text,
+      author: req.user,
+      date: Date.now(),
+    });
+
+    if (!errors.isEmpty()) {
+      res.render("new-message", {
+        message: message,
+        author: req.user,
+        errors: errors.array(),
+      });
+      console.log(errors.array());
+    } else {
+      await message.save();
+      res.redirect("/");
+    }
+  }),
+];
