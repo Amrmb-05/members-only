@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const signUpController = require("../controllers/signUpController");
 const loginController = require("../controllers/loginController");
+const messageController = require("../controllers/messageController");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express", user: req.user });
@@ -24,4 +25,7 @@ router.get("/log-out", (req, res, next) => {
     res.redirect("/");
   });
 });
+
+// New message routes
+router.get("/new-message", messageController.createMessage_get);
 module.exports = router;
