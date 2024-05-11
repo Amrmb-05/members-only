@@ -28,7 +28,14 @@ exports.createUser_post = [
     .withMessage("User name can not be empty ")
     .isEmail()
     .withMessage("Please enter a valid email address")
-    .escape(),
+    .escape()
+    .custom(async (value) => {
+      const existingUser = await User.findOne({ username: value });
+      if (existingUser) {
+        // Will use the below as the error message
+        throw new Error("A user already exists with this e-mail address");
+      }
+    }),
   body("password")
     .isLength({ min: 7 })
     .withMessage("Password must contain atleast 7 characters.")
