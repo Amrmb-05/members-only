@@ -1,32 +1,32 @@
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
-const Member = require("../models/member");
+const User = require("../models/user");
 const LocalStrategy = require("passport-local").Strategy;
 const asyncHandler = require("express-async-handler");
 
 passport.use(
   new LocalStrategy(
     asyncHandler(async (username, password, done) => {
-      const member = await Member.findOne({ username: username });
-      const passwordMatch = await bcrypt.compare(password, member.password);
-      if (!member || !passwordMatch) {
+      const user = await User.findOne({ username: username });
+      const passwordMatch = await bcrypt.compare(password, user.password);
+      if (!user || !passwordMatch) {
         return done(null, false, {
           message: "Incorrect username or password.",
         });
       }
-      return done(null, member);
+      return done(null, user);
     }),
   ),
 );
 
-passport.serializeUser((member, done) => {
-  done(null, member.id);
+passport.serializeUser((user, done) => {
+  done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const member = await Member.findById(id);
-    done(null, member);
+    const user = await User.findById(id);
+    done(null, user);
   } catch (err) {
     done(err);
   }

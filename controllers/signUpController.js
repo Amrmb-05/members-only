@@ -1,13 +1,13 @@
-const Member = require("../models/member");
+const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 
-exports.createMember_get = (req, res, next) => {
+exports.createUser_get = (req, res, next) => {
   res.render("sign-up");
 };
 
-exports.createMember_post = [
+exports.createUser_post = [
   body("firstname")
     .trim()
     .isLength({ min: 1 })
@@ -37,9 +37,9 @@ exports.createMember_post = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
-    // Create member object with escaped and trimmed data
+    // Create user object with escaped and trimmed data
 
-    const member = new Member({
+    const user = new User({
       first_name: req.body.firstname,
       last_name: req.body.lastname,
       username: req.body.username,
@@ -48,11 +48,11 @@ exports.createMember_post = [
 
     if (!errors.isEmpty()) {
       res.render("/sign-up", {
-        member: member,
+        user: user,
         errors: errors.array(),
       });
     } else {
-      await member.save();
+      await user.save();
       res.redirect("/login");
     }
   }),

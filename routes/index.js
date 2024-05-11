@@ -4,12 +4,12 @@ const signUpController = require("../controllers/signUpController");
 const loginController = require("../controllers/loginController");
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express", member: req.user });
+  res.render("index", { title: "Express", user: req.user });
 });
 
 // Sign-up page routes
-router.get("/sign-up", signUpController.createMember_get);
-router.post("/sign-up", signUpController.createMember_post);
+router.get("/sign-up", signUpController.createUser_get);
+router.post("/sign-up", signUpController.createUser_post);
 
 // Login page routes
 router.get("/login", loginController.login_get);
