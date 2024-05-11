@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <% if (member) {%>
-      <h1>WELCOME BACK <%= member.username %></h1>
-      <a href="/log-out">LOG OUT</a><% } %>
-      
-  </body>
+  <%- include("./partials/head"); %>
+</head>
+<body>
+  <%- include("./partials/header", {member: member}); %>
+</body>
 </html>

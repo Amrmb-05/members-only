@@ -1,0 +1,17 @@
+<header>
+        <nav>
+            <a href="/">Members Only Club</a>
+            <% if (member) {%>
+                <a href="/new-message">New Message</a>
+                <a href="/log-out">Log Out</a>
+        <% }
+        
+        else { %>
+            <a href="/sign-up">Sign-Up</a>
+            <a href="/login">Log In</a>
+          <%}%>
+        </nav>
+
+    </header>
+</body>
+
