@@ -2,15 +2,28 @@
         <nav>
             <a href="/">Members Only Club</a>
             <% if (user) {%>
+                <% if (user.admin) {%>
+                    <a href="/new-message">New Message</a>
+                    <a href="/log-out">Log Out</a>
+            <% }
+            else if (user.member) { %>
                 <a href="/new-message">New Message</a>
+                <a href="/admin">Admin Mode</a>
                 <a href="/log-out">Log Out</a>
+            <% }
+            else if (user) { %>
+                <a href="/new-message">New Message</a>
+                <a href="/member">Become a member</a>
+                <a href="/admin">Admin Mode</a>
+                <a href="/log-out">Log Out</a>
+            <%}%>
+           
         <% }
-        
         else { %>
             <a href="/sign-up">Sign-Up</a>
             <a href="/login">Log In</a>
           <%}%>
-        </nav>
+            </nav>
 
     </header>
 </body>
