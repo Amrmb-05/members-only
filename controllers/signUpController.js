@@ -30,10 +30,17 @@ exports.createUser_post = [
     .withMessage("Please enter a valid email address")
     .escape(),
   body("password")
-    .trim()
     .isLength({ min: 7 })
     .withMessage("Password must contain atleast 7 characters.")
     .escape(),
+  body("confirmPassword")
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Passwords do not match");
+      }
+      return true;
+    })
+    .withMessage("Passwords must match"),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
@@ -47,7 +54,7 @@ exports.createUser_post = [
     });
 
     if (!errors.isEmpty()) {
-      res.render("/sign-up", {
+      res.render("sign-up", {
         user: user,
         errors: errors.array(),
       });
