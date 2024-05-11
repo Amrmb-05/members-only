@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("./partials/head"); %>
+</head>
+<body>
+    <%- include("./partials/header", {user: undefined}); %>
+    <h1>New Message</h1>
+    <p>Hi, <%=author.first_name%></p>
+    <p>Whats on your mind?</p>
+<form method="POST">
+  <label for="title">Title</label>
+  <input name="title" placeholder="The Big Bang" type="text" id="title" />
+  <label for="text">Text</label>
+  <textarea name="text" id="text"></textarea>
+  <button>Submit</button>
+</form>
+</body>
+</html>
