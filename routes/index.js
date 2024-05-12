@@ -3,6 +3,7 @@ const router = express.Router();
 const signUpController = require("../controllers/signUpController");
 const loginController = require("../controllers/loginController");
 const messageController = require("../controllers/messageController");
+const membershipController = require("../controllers/membershipController");
 /* GET home page and display all messages in it*/
 router.get("/", messageController.getMessages);
 
@@ -27,4 +28,7 @@ router.get("/log-out", (req, res, next) => {
 // New message routes
 router.get("/new-message", messageController.createMessage_get);
 router.post("/new-message", messageController.createMessage_post);
+
+// Member routes
+router.get("/member", membershipController.becomeMember_get);
 module.exports = router;
