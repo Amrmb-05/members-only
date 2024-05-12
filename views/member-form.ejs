@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("./partials/head"); %>
+</head>
+<body>
+    <%- include("./partials/header", {user: user}); %>
+    <h1>Become a member</h1>
+<form method="POST">
+  <label for="member-passcode"></label>
+  <input name="member-passcode" type="text" />
+  <button>Submit</button>
+</form>
+</body>
+</html>
