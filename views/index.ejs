@@ -9,15 +9,17 @@
 </header>
 <main>
   <% messages.forEach((message) => { %>
-  <div>
+  <div class="message-card">
     <h2><%=message.title%></h2>
     <% if(user && user.member)  { %>
-      <p>by <%=message.author%></p>
-
+      <p>by <%=message.author.name%></p>
+      
     <%}
       %>
     <p><%=message.text %></p>
-    
+    <% if(user && user.admin)  { %>
+      <button>Delete</button>
+    <%} %>
   </div>
   <%}) %>
 </main>
