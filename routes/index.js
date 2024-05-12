@@ -29,7 +29,11 @@ router.get("/log-out", (req, res, next) => {
 router.get("/new-message", messageController.createMessage_get);
 router.post("/new-message", messageController.createMessage_post);
 
-// Member routes
+// Member member routes
 router.get("/member", membershipController.becomeMember_get);
 router.post("/member", membershipController.becomeMember_post);
 module.exports = router;
+
+// Become admin routes
+router.get("/admin", membershipController.becomeAdmin_get);
+router.post("/admin", membershipController.becomeAdmin_post);
