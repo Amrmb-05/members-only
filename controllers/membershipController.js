@@ -7,7 +7,7 @@ exports.becomeMember_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.becomeMember_post = [
-  body("member-passcode").escape(),
+  body("member_passcode").escape(),
 
   asyncHandler(async (req, res, next) => {
     // Check if the user entered the correct passcode
