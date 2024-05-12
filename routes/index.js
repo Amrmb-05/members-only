@@ -3,10 +3,8 @@ const router = express.Router();
 const signUpController = require("../controllers/signUpController");
 const loginController = require("../controllers/loginController");
 const messageController = require("../controllers/messageController");
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express", user: req.user });
-});
+/* GET home page and display all messages in it*/
+router.get("/", messageController.getMessages);
 
 // Sign-up page routes
 router.get("/sign-up", signUpController.createUser_get);

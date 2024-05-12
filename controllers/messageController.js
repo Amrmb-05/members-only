@@ -41,3 +41,8 @@ exports.createMessage_post = [
     }
   }),
 ];
+
+exports.getMessages = asyncHandler(async (req, res, next) => {
+  const messages = await Message.find().exec();
+  res.render("index", { user: req.user, messages: messages });
+});
