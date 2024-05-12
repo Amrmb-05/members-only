@@ -43,6 +43,6 @@ exports.createMessage_post = [
 ];
 
 exports.getMessages = asyncHandler(async (req, res, next) => {
-  const messages = await Message.find().exec();
+  const messages = await Message.find().populate("author").exec();
   res.render("index", { user: req.user, messages: messages });
 });
