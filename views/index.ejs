@@ -4,6 +4,22 @@
   <%- include("./partials/head"); %>
 </head>
 <body>
+  <header>
   <%- include("./partials/header", {user: user}); %>
+</header>
+<main>
+  <% messages.forEach((message) => { %>
+  <div>
+    <h2><%=message.title%></h2>
+    <% if(user && user.member)  { %>
+      <p>by <%=message.author%></p>
+
+    <%}
+      %>
+    <p><%=message.text %></p>
+    
+  </div>
+  <%}) %>
+</main>
 </body>
 </html>
