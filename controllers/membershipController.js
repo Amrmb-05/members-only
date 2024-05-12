@@ -25,3 +25,7 @@ exports.becomeMember_post = [
     }
   }),
 ];
+
+exports.becomeAdmin_get = asyncHandler(async (req, res, next) => {
+  res.render("admin-form", { user: req.user });
+});
