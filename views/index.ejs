@@ -10,16 +10,21 @@
 <main>
   <% messages.forEach((message) => { %>
   <div class="message-card">
+    <div class="message-top">
     <h2><%=message.title%></h2>
     <% if(user && user.member)  { %>
+      <p><%=message.createdAt %></p>
+    </div>
       <p>by <%=message.author.name%></p>
-
     <%}
+      
       %>
+      
+    
     <p><%=message.text %></p>
     <% if(user && user.admin)  { %>
-      <form method="post" action=<%=message.deleteUrl %> >
-      <button type="submit">Delete</button>
+      <form class="delete-form" method="post" action=<%=message.deleteUrl %> >
+      <button type="submit" class="delete-btn">Delete</button>
     </form>
     <%} %>
   </div>
