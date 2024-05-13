@@ -46,3 +46,8 @@ exports.getMessages = asyncHandler(async (req, res, next) => {
   const messages = await Message.find().populate("author").exec();
   res.render("index", { user: req.user, messages: messages });
 });
+
+exports.deleteMessage = asyncHandler(async (req, res, next) => {
+  await Message.findByIdAndDelete(req.params.id);
+  res.redirect("/");
+});
