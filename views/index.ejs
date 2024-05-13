@@ -13,7 +13,7 @@
     <div class="message-top">
     <h2><%=message.title%></h2>
     <% if(user && user.member)  { %>
-      <p><%=message.createdAt %></p>
+      <p><%=message.timeAgo %></p>
     </div>
       <p>by <%=message.author.name%></p>
     <%}
