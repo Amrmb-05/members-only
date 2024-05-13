@@ -21,7 +21,7 @@ const messageSchema = new Schema({
   },
 });
 
-messageSchema.virtual("delete-url").get(function () {
+messageSchema.virtual("deleteUrl").get(function () {
   return `/delete/${this._id}`;
 });
 
