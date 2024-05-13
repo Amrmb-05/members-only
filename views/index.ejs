@@ -10,9 +10,14 @@
 <main>
   <% messages.forEach((message) => { %>
   <div class="message-card">
-    <div class="message-top">
-    <h2><%=message.title%></h2>
+    
+      <% if(!user) {%>
+        <h2><%=message.title%></h2>
+      <%} %>
+    
     <% if(user && user.member)  { %>
+      <div class="message-top">
+      <h2><%=message.title%></h2>
       <p><%=message.timeAgo %></p>
     </div>
       <p>by <%=message.author.name%></p>
