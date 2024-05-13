@@ -21,4 +21,8 @@ const messageSchema = new Schema({
   },
 });
 
+messageSchema.virtual("delete-url").get(function () {
+  return `/delete/${this._id}`;
+});
+
 module.exports = mongoose.model("Message", messageSchema);
