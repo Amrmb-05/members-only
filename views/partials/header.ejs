@@ -1,6 +1,9 @@
 <header>
         <nav>
+            <div class="left-nav">
             <a href="/">Members Only Club</a>
+        </div>
+        <div class="right-nav">
             <% if (user) {%>
                 <% if (user.admin) {%>
                     <a href="/new-message">New Message</a>
@@ -23,6 +26,7 @@
             <a href="/sign-up">Sign-Up</a>
             <a href="/login">Log In</a>
           <%}%>
+        </div>
             </nav>
 
     </header>
