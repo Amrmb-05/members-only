@@ -37,3 +37,6 @@ module.exports = router;
 // Become admin routes
 router.get("/admin", membershipController.becomeAdmin_get);
 router.post("/admin", membershipController.becomeAdmin_post);
+
+// Delete message
+router.post("/delete/:id", messageController.deleteMessage);
