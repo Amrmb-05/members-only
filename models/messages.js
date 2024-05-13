@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const moment = require("moment");
 const messageSchema = new Schema({
   title: {
     type: String,
@@ -25,4 +25,8 @@ messageSchema.virtual("deleteUrl").get(function () {
   return `/delete/${this._id}`;
 });
 
+messageSchema.virtual("timeAgo").get(function () {
+  const timeAgo = moment(this.createdAt).fromNow();
+  return timeAgo;
+});
 module.exports = mongoose.model("Message", messageSchema);
