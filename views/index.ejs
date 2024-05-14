@@ -11,7 +11,7 @@
   <% messages.forEach((message) => { %>
   <div class="message-card">
     
-      <% if(!user) {%>
+      <% if(!user || (user && !user.member)) {%>
         <h2><%=message.title%></h2>
       <%} %>
     
