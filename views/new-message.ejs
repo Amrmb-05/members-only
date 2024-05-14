@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <%- include("./partials/head"); %>
+  <link rel="stylesheet" href="/stylesheets/message-form.css">
+
 </head>
 <body>
     <%- include("./partials/header", {user: author}); %>
@@ -9,13 +11,18 @@
     <h1>New Message</h1>
     <p>Hi, <%=author.first_name%></p>
     <p>Whats on your mind?</p>
-  </main>
+ 
 <form method="POST">
+  <div class="title-container">
   <label for="title">Title</label>
-  <input name="title" placeholder="The Big Bang" type="text" id="title" />
+  <input name="title" type="text" id="title" />
+</div>
+<div class="text-container">
   <label for="text">Text</label>
   <textarea name="text" id="text"></textarea>
-  <button>Submit</button>
+</div>
+  <button class="message-submit-btn">Submit</button>
 </form>
+</main>
 </body>
 </html>
