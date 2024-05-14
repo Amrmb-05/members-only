@@ -1,0 +1,10 @@
+.last-name-container, .first-name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-inputs, .password-container {
+    display: flex;
+    
+}
+
