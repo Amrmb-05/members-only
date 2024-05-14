@@ -6,27 +6,33 @@
 </head>
 <body>
     <%- include("./partials/header", {user: undefined}); %>
-  <h1>Sign Up</h1>
+    <main>
   <form action="" method="POST">
+    <h1>Sign Up</h1>
     <div class="name-inputs">
     <div class="first-name-container">
     <label for="firstname">First name</label>
-    <input name="firstname" placeholder="First name" type="text" />
+    <input name="firstname" type="text" />
   </div>
   <div class="last-name-container">
     <label for="lastname">Last name</label>
-    <input name="lastname" placeholder="Last name" type="text" />
+    <input name="lastname"type="text" /> 
   </div>
 </div>
-    <label for="username">Username</label>
-    <input name="username" placeholder="san-alsan@kmail.com" type="email" />
+    <label for="username">Email</label>
+    <input name="username" type="email" />
+    <div class="password-inputs">
     <div class="password-container">
     <label for="password">Password</label>
     <input name="password" type="password" />
+    </div>
+    <div class="confirmPassword-container">
     <label for="confirmPassword">Confirm Password</label>
     <input name="confirmPassword" type="password" />
   </div>
-    <button>Sign Up</button>
+</div>
+    <button class="sign-up-btn">Sign Up</button>
   </form>
+</main>
 </body>
 </html>

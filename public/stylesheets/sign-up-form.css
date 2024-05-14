@@ -1,10 +1,19 @@
-.last-name-container, .first-name-container {
+.last-name-container, .first-name-container,.password-container, .confirmPassword-container {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+    flex: 1
 }
 
-.name-inputs, .password-container {
+.name-inputs, .password-inputs  {
     display: flex;
+    gap: 1rem
+
     
+}
+
+.sign-up-btn {
+    width: auto;
+   
 }
 
