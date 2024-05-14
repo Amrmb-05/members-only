@@ -5,9 +5,11 @@
 </head>
 <body>
     <%- include("./partials/header", {user: author}); %>
+    <main>
     <h1>New Message</h1>
     <p>Hi, <%=author.first_name%></p>
     <p>Whats on your mind?</p>
+  </main>
 <form method="POST">
   <label for="title">Title</label>
   <input name="title" placeholder="The Big Bang" type="text" id="title" />
