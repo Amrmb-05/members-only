@@ -96,3 +96,7 @@ main {
   align-self: flex-end;
 }
 
+.error {
+  color: #e65c5c;
+}
+
