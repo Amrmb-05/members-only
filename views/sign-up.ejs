@@ -13,22 +13,42 @@
     <div class="first-name-container">
     <label for="firstname">First name</label>
     <input name="firstname" type="text" />
+    <% if(errors.firstname) { %>
+      <p class="error"><%=errors.firstname %></p>
+   <% }
+  %>
   </div>
   <div class="last-name-container">
     <label for="lastname">Last name</label>
     <input name="lastname"type="text" /> 
+    <% if(errors.lastname) { %>
+      <p class="error"><%=errors.lastname %></p>
+   <% }
+  %>
   </div>
 </div>
     <label for="username">Email</label>
     <input name="username" type="email" />
+    <% if(errors.username) { %>
+      <p class="error"><%=errors.username %></p>
+   <% }
+  %>
     <div class="password-inputs">
     <div class="password-container">
     <label for="password">Password</label>
     <input name="password" type="password" />
+    <% if(errors.password) { %>
+      <p class="error"><%=errors.password %></p>
+   <% }
+  %>
     </div>
     <div class="confirmPassword-container">
     <label for="confirmPassword">Confirm Password</label>
     <input name="confirmPassword" type="password" />
+    <% if(errors.confirmPassword) { %>
+      <p class="error"><%=errors.confirmPassword%></p>
+   <% }
+  %>
   </div>
 </div>
     <button class="sign-up-btn">Sign Up</button>
