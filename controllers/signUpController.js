@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 
 exports.createUser_get = (req, res, next) => {
-  res.render("sign-up");
+  res.render("sign-up", { errors: {} });
 };
 
 exports.createUser_post = [
@@ -61,9 +61,14 @@ exports.createUser_post = [
     });
 
     if (!errors.isEmpty()) {
+      const extractedErrors = {};
+      errors.array().forEach((error) => {
+        extractedErrors[error.path] = error.msg;
+      });
+
       res.render("sign-up", {
         user: user,
-        errors: errors.array(),
+        errors: extractedErrors,
       });
     } else {
       await user.save();
