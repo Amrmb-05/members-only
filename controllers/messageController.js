@@ -39,7 +39,6 @@ exports.createMessage_post = [
         author: req.user,
         errors: extractedErrors,
       });
-      console.log(errors.array());
     } else {
       await message.save();
       res.redirect("/");
