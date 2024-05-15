@@ -16,13 +16,22 @@
   <div class="title-container">
   <label for="title">Title</label>
   <input name="title" type="text" id="title" />
+  <% if(errors.title) { %>
+    <p class="error"><%=errors.title %></p>
+ <% }
+%>
 </div>
 <div class="text-container">
   <label for="text">Text</label>
   <textarea name="text" id="text"></textarea>
+  <% if(errors.text) { %>
+    <p class="error"><%=errors.text %></p>
+ <% }
+%>
 </div>
   <button class="message-submit-btn">Submit</button>
 </form>
+ 
 </main>
 </body>
 </html>
