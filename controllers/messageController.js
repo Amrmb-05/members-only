@@ -5,7 +5,7 @@ const { body, validationResult } = require("express-validator");
 
 exports.createMessage_get = (req, res, next) => {
   if (req.user) {
-    res.render("new-message", { author: req.user });
+    res.render("new-message", { author: req.user, errors: {} });
   } else {
     res.redirect("/");
   }
@@ -29,10 +29,15 @@ exports.createMessage_post = [
     });
 
     if (!errors.isEmpty()) {
+      const extractedErrors = {};
+      errors.array().forEach((error) => {
+        extractedErrors[error.path] = error.msg;
+      });
+
       res.render("new-message", {
         message: message,
         author: req.user,
-        errors: errors.array(),
+        errors: extractedErrors,
       });
       console.log(errors.array());
     } else {
