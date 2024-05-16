@@ -12,7 +12,7 @@
     <div class="name-inputs">
     <div class="first-name-container">
     <label for="firstname">First name</label>
-    <input name="firstname" type="text" />
+    <input name="firstname" type="text" value="<%= user.first_name %>" />
     <% if(errors.firstname) { %>
       <p class="error"><%=errors.firstname %></p>
    <% }
@@ -20,7 +20,7 @@
   </div>
   <div class="last-name-container">
     <label for="lastname">Last name</label>
-    <input name="lastname"type="text" /> 
+    <input name="lastname"type="text" value="<%= user.last_name %>"/> 
     <% if(errors.lastname) { %>
       <p class="error"><%=errors.lastname %></p>
    <% }
@@ -28,7 +28,7 @@
   </div>
 </div>
     <label for="username">Email</label>
-    <input name="username" type="email" />
+    <input name="username" type="email" value="<%= user.username %>"/>
     <% if(errors.username) { %>
       <p class="error"><%=errors.username %></p>
    <% }
@@ -36,7 +36,7 @@
     <div class="password-inputs">
     <div class="password-container">
     <label for="password">Password</label>
-    <input name="password" type="password" />
+    <input name="password" type="password" value="<%= user.password %>"/>
     <% if(errors.password) { %>
       <p class="error"><%=errors.password %></p>
    <% }
@@ -44,7 +44,7 @@
     </div>
     <div class="confirmPassword-container">
     <label for="confirmPassword">Confirm Password</label>
-    <input name="confirmPassword" type="password" />
+    <input name="confirmPassword" type="password"  value="<%=confirmPassword ? confirmPassword : '' %>"/>
     <% if(errors.confirmPassword) { %>
       <p class="error"><%=errors.confirmPassword%></p>
    <% }
