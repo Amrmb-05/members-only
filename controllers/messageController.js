@@ -2,10 +2,11 @@ const User = require("../models/user");
 const Message = require("../models/messages");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
+const messages = require("../models/messages");
 
 exports.createMessage_get = (req, res, next) => {
   if (req.user) {
-    res.render("new-message", { author: req.user, errors: {} });
+    res.render("new-message", { author: req.user, errors: {}, message: {} });
   } else {
     res.redirect("/");
   }
@@ -38,6 +39,7 @@ exports.createMessage_post = [
         message: message,
         author: req.user,
         errors: extractedErrors,
+        message: message,
       });
     } else {
       await message.save();
