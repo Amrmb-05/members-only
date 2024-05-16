@@ -8,8 +8,13 @@ passport.use(
   new LocalStrategy(
     asyncHandler(async (username, password, done) => {
       const user = await User.findOne({ username: username });
+      if (!user) {
+        return done(null, false, {
+          message: "Incorrect username or password.",
+        });
+      }
       const passwordMatch = await bcrypt.compare(password, user.password);
-      if (!user || !passwordMatch) {
+      if (!passwordMatch) {
         return done(null, false, {
           message: "Incorrect username or password.",
         });
