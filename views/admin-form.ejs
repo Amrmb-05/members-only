@@ -6,7 +6,7 @@
 <body>
     <%- include("./partials/header", {user: user}); %>
     <h1>Become an Admin</h1>
-<form method="POST">
+<form method="POST" class=admin-form>
   <label for="admin_passcode"></label>
   <input name="admin_passcode" type="text" />
   <button>Submit</button>
