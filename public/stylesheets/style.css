@@ -28,8 +28,12 @@ button {
   border-radius: 0.5rem;
   width: 6rem;
   font-weight: bold;
+  transition: transform 0.2s ease-in-out; 
 }
 
+button:active {
+  transform: scale(0.92);
+}
 
 form {
   color: #A6ADBA;
