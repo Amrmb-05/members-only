@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 
 exports.createUser_get = (req, res, next) => {
-  res.render("sign-up", { errors: {} });
+  res.render("sign-up", { errors: {}, user: {} });
 };
 
 exports.createUser_post = [
@@ -64,6 +64,8 @@ exports.createUser_post = [
       res.render("sign-up", {
         user: user,
         errors: extractedErrors,
+        user: user,
+        confirmPassword: req.body.confirmPassword,
       });
     } else {
       await user.save();
