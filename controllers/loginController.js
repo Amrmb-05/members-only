@@ -20,7 +20,7 @@ exports.login_post = (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      // Password is incorrect
+      // Username or Password is incorrect
 
       return res.render("login", { error: info.message });
     }
