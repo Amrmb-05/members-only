@@ -1,9 +1,4 @@
-const User = require("../models/user");
-const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcryptjs");
 const passport = require("passport");
-
-const { body, validationResult } = require("express-validator");
 
 exports.login_get = (req, res, next) => {
   res.render("login", { error: undefined });
