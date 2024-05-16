@@ -30,6 +30,7 @@ button {
   font-weight: bold;
 }
 
+
 form {
   color: #A6ADBA;
   display: flex;
@@ -37,6 +38,9 @@ form {
   gap: 1rem;
 }
 
+.member-form, .admin-form {
+  width: 20rem;
+}
 input {
   height: 3rem; 
 }
