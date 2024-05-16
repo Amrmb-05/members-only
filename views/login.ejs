@@ -12,8 +12,16 @@
   <h1>Log in</h1>
   <label for="username">Username</label>
   <input name="username"  type="text" />
+  <% if(error) { %>
+    <p class="error"><%=error %></p>
+ <% }
+%>
   <label for="password">Password</label>
   <input name="password" type="password" />
+  <% if(error) { %>
+    <p class="error"><%=error %></p>
+ <% }
+%>
   <button class="log-in-btn">Log In</button>
 </form>
 </main>
