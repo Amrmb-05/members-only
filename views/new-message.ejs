@@ -15,7 +15,7 @@
 <form method="POST">
   <div class="title-container">
   <label for="title">Title</label>
-  <input name="title" type="text" id="title" />
+  <input name="title" type="text" id="title" value="<%=message.title %>" />
   <% if(errors.title) { %>
     <p class="error"><%=errors.title %></p>
  <% }
@@ -23,7 +23,7 @@
 </div>
 <div class="text-container">
   <label for="text">Text</label>
-  <textarea name="text" id="text"></textarea>
+  <textarea name="text" id="text"><%=message.text %></textarea>
   <% if(errors.text) { %>
     <p class="error"><%=errors.text %></p>
  <% }
