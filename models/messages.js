@@ -26,7 +26,7 @@ messageSchema.virtual("deleteUrl").get(function () {
 });
 
 messageSchema.virtual("timeAgo").get(function () {
-  const timeAgo = moment(this.createdAt.toISOString()).fromNow();
+  const timeAgo = moment.utc(this.createdAt).fromNow();
   return timeAgo;
 });
 module.exports = mongoose.model("Message", messageSchema);
