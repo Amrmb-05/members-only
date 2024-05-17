@@ -1,9 +1,12 @@
 body {
-  padding: 50px;
+  padding: 2rem;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #111827;
-  /* height: 100vh; */
- 
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 h2, p {
@@ -69,7 +72,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  flex: 1;
 }
 .right-nav {
   display: flex;
@@ -85,7 +90,6 @@ main {
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   flex: 1;
-  min-width: 24rem;
   width: 32rem;
   padding: 2rem;
   gap: 1rem;
